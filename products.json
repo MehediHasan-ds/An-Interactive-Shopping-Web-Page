@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "name": "ASUS TUF Gaming F15 FX507ZC4-HN065",
+        "description": "16GB RAM,512GB NVMe",
+        "price": 1200,
+        "image": "./images/laptop.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Soundcore by Anker Q20i",
+        "description": "Up to 30 hours (ANC On), 40 hours (ANC Off)",
+        "price": 150,
+        "image": "./images/headphone.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Samsung Galaxy S23 Ultra 5G",
+        "description": "12GB LPDDR5X,256GB UFS 3.1",
+        "price": 800,
+        "image": "./images/smartphone2.jpeg"
+    },
+    {
+        "id": 1,
+        "name": "ASUS TUF Gaming F15 FX507ZC4-HN065",
+        "description": "16GB RAM,512GB NVMe",
+        "price": 1200,
+        "image": "./images/laptop.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Soundcore by Anker Q20i",
+        "description": "Up to 30 hours (ANC On), 40 hours (ANC Off)",
+        "price": 150,
+        "image": "./images/headphone.jpg"
+    },{
+        "id": 2,
+        "name": "Samsung Galaxy S23 Ultra 5G",
+        "description": "12GB LPDDR5X,256GB UFS 3.1",
+        "price": 800,
+        "image": "./images/smartphone2.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Samsung Galaxy S23 Ultra 5G",
+        "description": "12GB LPDDR5X,256GB UFS 3.1",
+        "price": 800,
+        "image": "./images/smartphone2.jpeg"
+    },
+    {
+        "id": 1,
+        "name": "ASUS TUF Gaming F15 FX507ZC4-HN065",
+        "description": "16GB RAM,512GB NVMe",
+        "price": 1200,
+        "image": "./images/laptop.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Soundcore by Anker Q20i",
+        "description": "Up to 30 hours (ANC On), 40 hours (ANC Off)",
+        "price": 150,
+        "image": "./images/headphone.jpg"
+    },{
+        "id": 2,
+        "name": "Samsung Galaxy S23 Ultra 5G",
+        "description": "12GB LPDDR5X,256GB UFS 3.1",
+        "price": 800,
+        "image": "./images/smartphone2.jpeg"
+    }
+]

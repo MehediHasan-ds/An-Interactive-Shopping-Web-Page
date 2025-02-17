@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+  
+#products-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next row */
+  gap: 20px;
+  justify-content: center; /* Center cards horizontally */
+  padding: 1rem;
+}
+  
+.product {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  text-align: center;
+  font-size: x-small;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Stick info to the bottom */
+  height: 230px;
+  width: 150px;
+}
+
+.product:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.product img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain; /* Ensure image fits within the fixed dimensions */
+  border-radius: 8px;
+}
+
+.product-info {
+  margin-top: auto; /* Push info to the bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.product-info p {
+  margin: 0;
+  font-size: 12px;
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.product-info button {
+  margin-top: 8px;
+}
+  
+button {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+  
+button:hover {
+  background: #218838;
+}
+
+/* View Cart Button */
+#view-cart {
+  position: fixed; /* Fix the button to the viewport */
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it's above other elements */
+  background: #007bff;
+  padding: 0.75rem 1.5rem; /* Increase padding for better visibility */
+  font-size: 16px;
+}
+  
+#view-cart:hover {
+  background: #0056b3;
+}
+
+  
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 1rem;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+  
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+  
+/* Add-to-Cart Message */
+.message {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background: #28a745;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  animation: slideIn 0.5s ease, fadeOut 0.5s ease 2.5s; /* Add animations */
+}
+  
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
