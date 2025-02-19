@@ -1,0 +1,148 @@
+/* Checkout Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  #go-back {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #go-back:hover {
+    background: #0056b3;
+  }
+  
+  main {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #checkout-summary {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #checkout-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  #checkout-items th,
+  #checkout-items td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  #checkout-items th {
+    background-color: #f4f4f4;
+  }
+  
+  #checkout-items tfoot td {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  #promo-code-section {
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+  
+  #promo-code-input {
+    padding: 0.5rem;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #apply-promo-code {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  #apply-promo-code:hover {
+    background: #0056b3;
+  }
+  
+  #promo-code-message {
+    margin-top: 0.5rem;
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  #total-after-discount {
+    text-align: right;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  #checkout-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+  
+  #confirm-buy {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  #confirm-buy:hover {
+    background: #218838;
+  }
+  
+  #cancel-order {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  #cancel-order:hover {
+    background: #c82333;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  #checkout-summary {
+    animation: fadeIn 0.5s ease;
+  }

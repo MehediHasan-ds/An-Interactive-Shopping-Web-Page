@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "name": "ASUS TUF Gaming F15 FX507ZC4-HN065",
+      "category": "Laptop",
+      "sub-category": "Gaming Laptop",
+      "description": "A powerful laptop designed for professionals and gamers, featuring the latest hardware for seamless multitasking and high-end performance.",
+      "price": 1200,
+      "unit": "per unit",
+      "image": "laptop.jpg",
+      "specifications": {
+        "Processor": "Intel Core i7-12700H (12th Gen, 14 Cores, 4.7 GHz Turbo)",
+        "RAM": "16GB DDR5 4800MHz",
+        "Storage": "512GB NVMe SSD",
+        "Graphics": "NVIDIA GeForce RTX 3060 6GB GDDR6",
+        "Display": "15.6-inch FHD (1920x1080), 144Hz refresh rate",
+        "Battery Life": "Up to 10 hours",
+        "Operating System": "Windows 11 Pro",
+        "Connectivity": "Wi-Fi 6, Bluetooth 5.2, USB-C, HDMI, Thunderbolt 4",
+        "Weight": "1.8 kg"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Samsung Galaxy S23 Ultra 5G",
+      "category": "Mobile",
+      "sub-category": "Smartphone",
+      "description": "A sleek and modern smartphone with a powerful processor, stunning display, and long battery life, perfect for work and entertainment.",
+      "price": 800,
+      "unit": "per unit",
+      "image": "smartphone.jpg",
+      "specifications": {
+        "Processor": "Snapdragon 8 Gen 2 (Octa-core, 3.2 GHz)",
+        "RAM": "12GB LPDDR5X",
+        "Storage": "256GB UFS 3.1",
+        "Display": "6.7-inch AMOLED, 120Hz refresh rate, HDR10+",
+        "Camera": "Triple: 108MP (Wide) + 12MP (Ultra-wide) + 8MP (Telephoto)",
+        "Front Camera": "32MP",
+        "Battery": "5000mAh with 65W fast charging",
+        "Operating System": "Android 14",
+        "Connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3, NFC, USB-C",
+        "Weight": "200g"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Soundcore by Anker Q20i",
+      "description": "Premium over-ear headphones with active noise cancellation, high-fidelity sound, and long battery life for an immersive audio experience.",
+      "price": 150,
+      "unit": "per unit",
+      "image": "headphone.jpg",
+      "specifications": {
+        "Driver Size": "40mm Dynamic Drivers",
+        "Noise Cancellation": "Active Noise Cancelling (ANC) with Transparency Mode",
+        "Battery Life": "Up to 30 hours (ANC On), 40 hours (ANC Off)",
+        "Charging": "USB-C Fast Charging (Full charge in 2 hours)",
+        "Connectivity": "Bluetooth 5.2, 3.5mm Audio Jack",
+        "Microphone": "Built-in Dual Mic for Calls and Voice Assistant",
+        "Weight": "250g",
+        "Additional Features": "Touch Controls, Foldable Design, Multipoint Connection"
+      }
+    },
+    {
+      "id": 1739745528017,
+      "name": "iPhone 16 Pro Max",
+      "price": 999,
+      "image": "smartphone2.jpeg",
+      "description": "ljsbljs",
+      "category": "Mobile",
+      "subCategory": "Smartphone",
+      "specifications": {
+        "Display Size": "6.0",
+        "Battery Capacity": "4500",
+        "Camera Resolution": "50MP",
+        "Processor Type": "bionic"
+      }
+    }
+  ]

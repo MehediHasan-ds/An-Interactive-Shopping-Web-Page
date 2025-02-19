@@ -1,0 +1,55 @@
+{
+    "products": [
+      {
+        "category": "Mobile",
+        "sub-category": "Smartphone",
+        "specifications": [
+          "Display Size",
+          "Battery Capacity",
+          "Camera Resolution",
+          "Processor Type"
+        ]
+      },
+      {
+        "category": "Laptop",
+        "sub-category": "Gaming Laptop",
+        "specifications": [
+          "RAM Capacity",
+          "Storage Type",
+          "GPU Model",
+          "Screen Refresh Rate"
+        ]
+      },
+      {
+        "category": "Processor",
+        "sub-category": "Desktop CPU",
+        "specifications": [
+          "Core Count",
+          "Base Clock Speed",
+          "Cache Memory",
+          "TDP (Thermal Design Power)"
+        ]
+      },
+      {
+        "category": "Smartwatch",
+        "sub-category": "Fitness Tracker",
+        "specifications": [
+          "Display Type",
+          "Battery Life",
+          "Health Tracking Features",
+          "Water Resistance Rating"
+        ]
+      },
+      {
+        "category": "Television",
+        "sub-category": "LED TV",
+        "specifications": [
+          "Screen Size",
+          "Resolution",
+          "Refresh Rate",
+          "HDR Support"
+        ]
+      }
+    ]
+  }
+  

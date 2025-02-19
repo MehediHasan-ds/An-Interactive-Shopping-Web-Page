@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shopping Cart">
+  <meta name="keywords" content="shopping cart, e-commerce, HTML, CSS, JavaScript">
+  <meta name="author" content="Mehedi Hasan">
+  <title>InfiniTek</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+  <header>
+    <h1>InfiniTek</h1>
+    <a href="{% url 'manage-specifications' %}" class="btn btn-secondary">Manage Products</a>
+    <button id="go-back" style="display: none;">Go Back</button>
+  </header>
+
+  <!-- Add-to-Cart Message -->
+  <div id="add-to-cart-message" class="message"></div>
+
+  <main>
+    <!-- Product List -->
+    <div id="products-container"></div>
+
+    <!-- Product Details View -->
+    <div id="product-details-view" style="display: none;">
+      <img id="product-detail-image" src="" alt="Product Image">
+      <h2 id="product-detail-name"></h2>
+      <p id="product-detail-price"></p>
+      <table id="product-detail-specifications"></table>
+      <p id="product-detail-description"></p>
+      <button id="add-to-cart-from-detail">Add to Cart</button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p id="cart-total-amount">Total: $<span id="cart-total">0.00</span></p>
+        <div class="button-container">
+          <button id="clear-cart">Clear Cart</button>
+          <a href="{% url 'checkout' %}" id="checkout-button">Proceed to Checkout</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- View Cart Button -->
+  <button id="view-cart">View Cart (<span id="cart-count">0</span>)</button>
+
+  <script>
+    const productsJsonUrl = "{% static 'json/products.json' %}";
+    const imagesBaseUrl = "{% static 'images/' %}";
+  </script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

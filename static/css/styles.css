@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  header {
+    background: #8e948a;
+    color: #fff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h1{
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+  }
+  #go-back {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #go-back:hover {
+    background: #0056b3;
+  }
+  
+  button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #218838;
+  }
+  
+  /* Add-to-Cart Message */
+  .message {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #28a745;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    animation: slideIn 0.5s ease, fadeOut 0.5s ease 2.5s;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }

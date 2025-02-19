@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Checkout Page">
+  <meta name="keywords" content="checkout, e-commerce, HTML, CSS, JavaScript">
+  <meta name="author" content="Mehedi Hasan">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <a href="{% url 'index' %}" id="go-back">Back to Products</a>
+  </header>
+
+  <main>
+    <div id="checkout-summary">
+      <h2>Order Summary</h2>
+      <table id="checkout-items">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+            <td>$<span id="checkout-total">0.00</span></td>
+          </tr>
+        </tfoot>
+      </table>
+      <hr>
+      <div id="promo-code-section">
+        <input type="text" id="promo-code-input" placeholder="Enter promo code">
+        <button id="apply-promo-code">Apply</button>
+        <p id="promo-code-message"></p>
+      </div>
+      <hr>
+      <div id="total-after-discount">
+        <p><strong>Total After Discount:</strong> $<span id="checkout-total-after-discount">0.00</span></p>
+      </div>
+      <div id="checkout-buttons">
+        <button id="cancel-order">Cancel</button>
+        <button id="confirm-buy">Confirm Buy</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const promoCodesJsonUrl = "{% static 'json/promocodes.json' %}";
+  </script>
+  <script src="{% static 'js/checkout.js' %}"></script>
+</body>
+</html>
