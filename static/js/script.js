@@ -22,34 +22,34 @@ const addToCartMessage = document.getElementById("add-to-cart-message");
 
 // Fetch products from products.json
 async function fetchProducts() {
-    try {
-      const response = await fetch(productsJsonUrl); // Use the variable here
-      if (!response.ok) {
-        throw new Error("Failed to fetch products");
-      }
-      products = await response.json();
-      renderProducts();
-    } catch (error) {
-      console.error("Error fetching products:", error);
+  try {
+    const response = await fetch(productsJsonUrl); // Use the variable here
+    if (!response.ok) {
+      throw new Error("Failed to fetch products");
     }
+    products = await response.json();
+    renderProducts();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
 }
-  
-  function renderProducts() {
-    productsContainer.innerHTML = products
-      .map(
-        (product) => `
-        <div class="product" onclick="showProductDetails(${product.id})">
-          <img src="${imagesBaseUrl}${product.image}" alt="${product.name}"> <!-- Use the variable here -->
-          <div class="product-info">
-            <h3>${product.name}</h3>
-            ${renderSelectedSpecs(product)}
-            <p>$${product.price.toFixed(2)}</p>
-            <button onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
-          </div>
+
+function renderProducts() {
+  productsContainer.innerHTML = products
+    .map(
+      (product) => `
+      <div class="product" onclick="showProductDetails(${product.id})">
+        <img src="${imagesBaseUrl}${product.image}" alt="${product.name}"> <!-- Use the variable here -->
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          ${renderSelectedSpecs(product)}
+          <p>$${product.price.toFixed(2)}</p>
+          <button onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
         </div>
-      `
-      )
-      .join("");
+      </div>
+    `
+    )
+    .join("");
 }
 
 function renderSelectedSpecs(product) {
