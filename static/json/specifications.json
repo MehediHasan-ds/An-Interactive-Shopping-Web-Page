@@ -49,6 +49,14 @@
           "Refresh Rate",
           "HDR Support"
         ]
+      },
+      {
+        "category": "Earbuds",
+        "sub-category": "Apple",
+        "specifications": [
+          "Charging time",
+          "Connection"
+        ]
       }
     ]
   }

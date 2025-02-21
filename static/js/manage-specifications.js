@@ -15,31 +15,50 @@ const addAnotherBtn = document.getElementById("add-another-btn");
 const productCategory = document.getElementById("product-category");
 const productSubcategory = document.getElementById("product-subcategory");
 
+// Function to get the CSRF token from cookies
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
+const csrfToken = getCookie('csrftoken'); // Get CSRF token
+
 // Fetch products and specifications
 async function fetchData() {
-    try {
-      const [productsResponse, specsResponse] = await Promise.all([
-        fetch(productsJsonUrl), // Use the variable here
-        fetch(specificationsJsonUrl), // Use the variable here
-      ]);
-  
-      if (!productsResponse.ok || !specsResponse.ok) {
-        throw new Error("Failed to fetch data");
-      }
-  
-      products = await productsResponse.json();
-      specificationsData = (await specsResponse.json()).products;
-  
-      populateCategories();
-      renderProductSpecs(products);
-    } catch (error) {
-      console.error("Error fetching data:", error);
+  try {
+    const [productsResponse, specsResponse] = await Promise.all([
+      fetch(`${productsJsonUrl}?${Date.now()}`, { cache: 'no-cache' }),
+      fetch(specificationsJsonUrl),
+    ]);
+
+    if (!productsResponse.ok || !specsResponse.ok) {
+      throw new Error("Failed to fetch data");
     }
+
+    products = await productsResponse.json();
+    specificationsData = (await specsResponse.json()).products;
+
+    populateCategories();
+    renderProductSpecs(products);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    alert("Failed to fetch data. Please try again.");
+  }
 }
 
 // Render product specifications in the table
 function renderProductSpecs(filteredProducts) {
-  productSpecsList.innerHTML = filteredProducts
+  const newContent = filteredProducts
     .map(
       (product) => `
       <tr>
@@ -68,6 +87,8 @@ function renderProductSpecs(filteredProducts) {
     `
     )
     .join("");
+
+  productSpecsList.innerHTML = newContent;
 }
 
 // Event delegation for checkbox changes
@@ -170,10 +191,10 @@ window.removeField = (button) => {
 // Confirm adding product
 confirmAddProductBtn.addEventListener("click", async () => {
   const product = {
-    id: Date.now(), // Generate unique ID
+    id: Date.now(),
     name: document.getElementById("product-name").value,
     price: parseFloat(document.getElementById("product-price").value),
-    image: "", // Will be updated after image upload
+    image: "",
     description: document.getElementById("product-description").value,
     category: productCategory.value,
     subCategory: productSubcategory.value,
@@ -194,15 +215,18 @@ confirmAddProductBtn.addEventListener("click", async () => {
     formData.append("image", imageFile);
 
     try {
-      const uploadResponse = await fetch("http://localhost:3000/upload-image", {
+      const uploadResponse = await fetch("/upload-image/", {
         method: "POST",
+        headers: {
+          "X-CSRFToken": csrfToken,
+        },
         body: formData,
       });
 
       if (!uploadResponse.ok) throw new Error("Failed to upload image");
 
       const { imageUrl } = await uploadResponse.json();
-      product.image = imageUrl; // Update the product's image path
+      product.image = imageUrl;
     } catch (error) {
       console.error("Error uploading image:", error);
       alert("Failed to upload image. Please try again.");
@@ -210,11 +234,14 @@ confirmAddProductBtn.addEventListener("click", async () => {
     }
   }
 
-  // Save product to products.json (via backend)
+  // Save product
   try {
-    const response = await fetch("http://localhost:3000/save-product", {
+    const response = await fetch("/save-product/", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrfToken,
+      },
       body: JSON.stringify(product),
     });
 
@@ -227,6 +254,10 @@ confirmAddProductBtn.addEventListener("click", async () => {
     // Show success modal
     addProductModal.hide();
     addAnotherModal.show();
+
+    // Re-fetch and re-render products
+    await fetchData(); // Fetch the latest data
+    renderProductSpecs(products); // Re-render the product list
   } catch (error) {
     console.error("Error saving product:", error);
     alert("Failed to save product. Please try again.");

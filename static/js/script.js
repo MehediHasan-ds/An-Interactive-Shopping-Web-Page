@@ -31,6 +31,7 @@ async function fetchProducts() {
     renderProducts();
   } catch (error) {
     console.error("Error fetching products:", error);
+    alert("Failed to load products. Please try again.");
   }
 }
 
@@ -39,7 +40,7 @@ function renderProducts() {
     .map(
       (product) => `
       <div class="product" onclick="showProductDetails(${product.id})">
-        <img src="${imagesBaseUrl}${product.image}" alt="${product.name}"> <!-- Use the variable here -->
+        <img src="${imagesBaseUrl}${product.image}" alt="${product.name}" onerror="this.src='${imagesBaseUrl}placeholder.jpg'"> <!-- Use imagesBaseUrl for image paths -->
         <div class="product-info">
           <h3>${product.name}</h3>
           ${renderSelectedSpecs(product)}
@@ -64,34 +65,34 @@ function renderSelectedSpecs(product) {
 }
 
 function showProductDetails(productId) {
-    const product = products.find((p) => p.id === productId);
-    if (!product) return;
-  
-    // Use the imagesBaseUrl variable to construct the full image path
-    productDetailImage.src = `${imagesBaseUrl}${product.image}`;
-    productDetailName.textContent = product.name;
-    productDetailPrice.textContent = `$${product.price.toFixed(2)}`;
-    productDetailDescription.textContent = product.description;
-  
-    productDetailSpecifications.innerHTML = Object.entries(product.specifications)
-      .map(
-        ([key, value]) => `
-        <tr>
-          <th>${key}</th>
-          <td>${value}</td>
-        </tr>
-      `
-      )
-      .join("");
-  
-    addToCartFromDetail.onclick = () => {
-      addToCart(product.id);
-    };
-  
-    // Show product details view and hide product list
-    productsContainer.style.display = "none";
-    productDetailsView.style.display = "block";
-    goBackButton.style.display = "block";
+  const product = products.find((p) => p.id === productId);
+  if (!product) return;
+
+  // Use the imagesBaseUrl variable to construct the full image path
+  productDetailImage.src = `${imagesBaseUrl}${product.image}`;
+  productDetailName.textContent = product.name;
+  productDetailPrice.textContent = `$${product.price.toFixed(2)}`;
+  productDetailDescription.textContent = product.description;
+
+  productDetailSpecifications.innerHTML = Object.entries(product.specifications)
+    .map(
+      ([key, value]) => `
+      <tr>
+        <th>${key}</th>
+        <td>${value}</td>
+      </tr>
+    `
+    )
+    .join("");
+
+  addToCartFromDetail.onclick = () => {
+    addToCart(product.id);
+  };
+
+  // Show product details view and hide product list
+  productsContainer.style.display = "none";
+  productDetailsView.style.display = "block";
+  goBackButton.style.display = "block";
 }
 
 // Go Back to Product List
